@@ -18,10 +18,10 @@ const Login = () => {
     try {
         const response = await axios.post(`${serverUrl}/api/admin/login`, { email, password });
         if (response.data.success) {
-            const { token } = response.data; // Extract the token from the response
-            localStorage.setItem('adminToken', token); // Save the token in localStorage
+            const { token } = response.data; 
+            localStorage.setItem('adminToken', token); 
             toast.success('Admin logged in successfully');
-            navigate('/dashboard'); // Redirect to the admin dashboard
+            navigate('/dashboard'); 
         } else {
             toast.error(response.data.message);
         }
